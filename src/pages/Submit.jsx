@@ -47,7 +47,7 @@ export default function SubmitWork() {
     }
 
     try {
-      await axios.post('http://localhost:3000/api/works', formData, {
+      await axios.post('https://oner-kz-backend.onrender.com/api/works', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

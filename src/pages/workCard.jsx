@@ -15,7 +15,7 @@ const WorksList = () => {
   useEffect(() => {
     const fetchWorks = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/works");
+        const response = await axios.get("https://oner-kz-backend.onrender.com/api/works");
         setWorks(response.data);
       } catch (error) {
         toast.error("Мәліметтерді алу кезінде қате пайда болды.");
@@ -36,7 +36,7 @@ const WorksList = () => {
       const confirmRemove = window.confirm("Избранныйдан өшіруді қалайсыз ба?");
       if (!confirmRemove) return;
       try {
-        await axios.delete(`http://localhost:3000/api/favorites/${work.id}`, {
+        await axios.delete(`https://oner-kz-backend.onrender.com/api/favorites/${work.id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         toast.success("Избранныйдан өшірілді!");
@@ -47,7 +47,7 @@ const WorksList = () => {
       }
     } else {
       try {
-        await axios.post(`http://localhost:3000/api/favorites/${work.id}`,{},
+        await axios.post(`https://oner-kz-backend.onrender.com/api/favorites/${work.id}`,{},
           {headers: {Authorization: `Bearer ${token}`,},});
         toast.success("Избранныйға қосылды!");
         setWorks((prev) =>prev.map((w) =>w.id === work.id ? { ...w, is_favorited: true } : w));
@@ -63,7 +63,7 @@ const WorksList = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/api/works/${id}`);
+      await axios.delete(`https://oner-kz-backend.onrender.com/api/works/${id}`);
       toast.success("Жұмыс сәтті өшірілді!");
       setWorks((prev) => prev.filter((w) => w.id !== id));
     } catch (error) {
@@ -81,7 +81,7 @@ const WorksList = () => {
         <div key={work.id} className="work-card relative">
           <FaHeart className={`absolute top-2 right-2 cursor-pointer text-xl hover:scale-110 transition ${work.is_favorited ? "text-red-500" : "text-gray-300"}`}
           onClick={() => toggleFavorite(work)}title={work.is_favorited? "Избранныйдан өшіру": "Избранныйға қосу"}/>
-          {work.image_url && (<img src={`http://localhost:3000${work.image_url}`}alt={work.title}className="work-image"/>)}
+          {work.image_url && (<img src={`https://oner-kz-backend.onrender.com${work.image_url}`}alt={work.title}className="work-image"/>)}
           <div className="work-info">
             <h2 className="work-title">{work.title}</h2>
             <p className="work-author">{t("by")}{work.author}</p>

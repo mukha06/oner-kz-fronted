@@ -21,7 +21,7 @@ export default function Favorites() {
           return;
         }
 
-        const response = await axios.get('http://localhost:3000/api/favorites', {
+        const response = await axios.get('https://oner-kz-backend.onrender.com/api/favorites', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -51,7 +51,7 @@ export default function Favorites() {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/api/favorites/${workId}`, {
+      await axios.delete(`https://oner-kz-backend.onrender.com/api/favorites/${workId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -79,7 +79,7 @@ export default function Favorites() {
             <FaHeart className="absolute top-2 right-2 text-red-500 cursor-pointer text-xl hover:scale-110 transition"onClick={() => handleRemoveFavorite(work.work_id)}title="Избранныйдан өшіру"/>
 
             {work.image_url && (
-              <img src={`http://localhost:3000${work.image_url}`}alt={work.title}className="work-image"/>)}
+              <img src={`https://oner-kz-backend.onrender.com${work.image_url}`}alt={work.title}className="work-image"/>)}
             <div className="work-info">
               <h2 className="work-title">{work.title}</h2>
               <p className="work-author">Автор: {work.author || ''}</p>

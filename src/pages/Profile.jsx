@@ -42,7 +42,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (activeTab === "favorites") {
-      api.get("/api/favorites", {headers: { Authorization: `Bearer ${token}` },})
+      api.get("https://oner-kz-backend.onrender.com/api/favorites", {headers: { Authorization: `Bearer ${token}` },})
         .then((res) => setFavorites(res.data))
         .catch((err) => console.error(err));
     }
@@ -50,7 +50,7 @@ export default function Profile() {
 
   useEffect(() => {
     if (activeTab === "myWorks") {
-      api.get("/api/works/my", {headers: { Authorization: `Bearer ${token}` },})
+      api.get("https://oner-kz-backend.onrender.com/api/works/my", {headers: { Authorization: `Bearer ${token}` },})
         .then((res) => setMyWorks(res.data))
         .catch((err) => console.error(err));
     }
@@ -63,7 +63,7 @@ export default function Profile() {
     formData.append("avatar", file);
 
     try {
-      const res = await api.post("/api/user/upload-avatar", formData, {
+      const res = await api.post("https://oner-kz-backend.onrender.com/api/user/upload-avatar", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -101,8 +101,7 @@ export default function Profile() {
     }
 
     try {
-      await api.put(
-        "/api/user/change-password",
+      await api.put("https://oner-kz-backend.onrender.com/api/user/change-password",
         { oldPassword, newPassword },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -119,7 +118,7 @@ export default function Profile() {
 
   const handleDeleteAccount = async () => {
     try {
-      await api.delete("/api/user/delete", {
+      await api.delete("https://oner-kz-backend.onrender.com/api/user/delete", {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(t("account_deleted"));
@@ -229,10 +228,7 @@ export default function Profile() {
                     <label>{t("new_password")}</label>
                     <input type="password"value={newPassword}onChange={(e) => setNewPassword(e.target.value)}required/>
                 </div>
-                <div className="form-group">
-                    <label>{t("repeatnew_password")}</label>
-                    <input type="password"value={newPassword}onChange={(e) => setNewPassword(e.target.value)}required/>
-                </div>
+
                 <br />
                     <button onClick={handleChangePassword}>{t("save_change")}</button>
 
