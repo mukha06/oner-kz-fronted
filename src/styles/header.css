@@ -1,0 +1,266 @@
+.custom-header {
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  background-color: #fff;
+  /* backdrop-filter: blur(10px); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin-left: auto;
+  height: 70px;
+  margin-right: auto;
+  padding-left: 1.5rem;
+
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.header-top {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-nav {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .main-nav {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 0;
+  }
+}
+
+.nav-link {
+  color: black;
+  transition: color 0.3s ease-in-out;
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  color: #67e8f9;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.site-logo {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: black;
+  margin-right: 1rem;
+}
+
+.auth-nav {
+  display: none;
+  gap: 5px;
+}
+
+@media (min-width: 769px) {
+  .auth-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+.signup-button {
+  background-color: #0891b2;
+  color: black;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.signup-button:hover {
+  background-color: #0e7490;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 9999px;
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-link {
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.profile-link:hover {
+  color: #67e8f9;
+}
+
+.logout-btn {
+  color: black;
+  margin-left: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  color: #67e8f9;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+.burger-wrapper {
+  display: block;
+  margin-left: auto;
+}
+
+@media (min-width: 769px) {
+  .burger-wrapper {
+    display: none;
+  }
+}
+
+.burger-button {
+  width: 1.75rem;
+  height: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.burger-line {
+  position: absolute;
+  height: 0.15rem;
+  width: 100%;
+  background-color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.burger-line:nth-child(1) {
+  top: 0;
+}
+
+.burger-line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.burger-line:nth-child(3) {
+  bottom: 0;
+}
+
+.burger-button.open .burger-line:nth-child(1) {
+  transform: translateY(0.55rem) rotate(45deg);
+}
+
+.burger-button.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.open .burger-line:nth-child(3) {
+  transform: translateY(-0.55rem) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease-in-out;
+  z-index: 40;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.mobile-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1f2937;
+  transition: color 0.3s ease-in-out;
+}
+
+.mobile-link:hover {
+  color: #06b6d4;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 430px) {
+  .header-top{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+  }
+  .site-logo {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .signup-button {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .burger-button {
+    width: 1.5rem;
+    height: 1rem;
+    bottom: 35px;
+  }
+
+  .burger-line {
+    height: 0.125rem;
+  }
+
+  .main-nav {
+    display: none !important;
+  }
+}
+
+@media (max-width:769px) {
+  
+  .burger-button {
+    width: 1.5rem;
+    height: 1rem;
+    bottom: 35px;
+  }
+
+}
+
